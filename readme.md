@@ -10,6 +10,7 @@ Easily include albums, EPs, and singles with covers, songs, artist profiles, and
 - Organized support for **Albums**, **EPs**, and **Singles**
 - **JSON metadata** for songs, albums, and artists
 - Artist profile images and detailed info (monthly listeners, bio)
+- **Enable/disable** any song, album, EP, or single using an `enabled` flag
 - Ready-to-use file structure for web integration
 - Fully compatible with any JavaScript-based website or music player
 
@@ -40,7 +41,7 @@ music-database/
 
 ---
 
-## 📝 Example `music.json`
+## 📝 Example `music.json` with Enable/Disable
 
 ```json
 {
@@ -55,7 +56,8 @@ music-database/
       ],
       "artist_profile": "artist/artist1.jpg",
       "artist_info": "artist-info/artist1.json",
-      "release_date": "2025-06-01"
+      "release_date": "2025-06-01",
+      "enabled": true
     }
   ],
   "eps": [
@@ -69,32 +71,36 @@ music-database/
       ],
       "artist_profile": "artist/artist2.jpg",
       "artist_info": "artist-info/artist2.json",
-      "release_date": "2025-08-15"
+      "release_date": "2025-08-15",
+      "enabled": true
     }
   ],
   "singles": [
     {
-      "title": "Single 1",
-      "artist": "Artist 3",
-      "cover": "cover/singles/single1.jpg",
-      "song": "songs/singles/single1.mp3",
-      "artist_profile": "artist/artist3.jpg",
-      "artist_info": "artist-info/artist3.json",
-      "release_date": "2025-09-10"
+      "title": "Akoma",
+      "artist": "Finem",
+      "cover": "cover/singles/akoma.jpg",
+      "song": "songs/singles/akoma.mp3",
+      "artist_profile": "artist/finem.jpg",
+      "artist_info": "artist-info/finem.json",
+      "release_date": "2025-10-06",
+      "enabled": true
     }
   ]
 }
 ````
 
+> ⚡ **Tip:** Set `"enabled": false` to temporarily hide any album, EP, or single from your website without removing the files.
+
 ---
 
-## 👤 Example `artist-info/<artist_name>.json`
+## 👤 Example Artist Info (`artist-info/<artist_name>.json`)
 
 ```json
 {
-  "name": "Artist 1",
-  "monthly_listeners": 1500000,
-  "description": "Artist 1 is a pop singer known for catchy melodies and strong vocals."
+  "name": "Finem",
+  "monthly_listeners": 250000,
+  "description": "Finem is an Afrobeat artist known for catchy rhythms and strong vocals."
 }
 ```
 
@@ -114,20 +120,14 @@ git clone https://github.com/CufoTv/MSDB.git
 fetch('database/music.json')
   .then(res => res.json())
   .then(data => {
-    // Display albums
-    data.albums.forEach(album => {
-      console.log(album.title, album.artist, album.songs);
-    });
+    // Filter only enabled albums, EPs, and singles
+    const albums = data.albums.filter(album => album.enabled);
+    const eps = data.eps.filter(ep => ep.enabled);
+    const singles = data.singles.filter(single => single.enabled);
 
-    // Display EPs
-    data.eps.forEach(ep => {
-      console.log(ep.title, ep.artist, ep.songs);
-    });
-
-    // Display Singles
-    data.singles.forEach(single => {
-      console.log(single.title, single.artist, single.song);
-    });
+    console.log("Albums:", albums);
+    console.log("EPs:", eps);
+    console.log("Singles:", singles);
   });
 ```
 
@@ -152,7 +152,7 @@ fetch('database/music.json')
    * `/cover/albums/`
    * `/cover/eps/`
    * `/cover/singles/`
-3. Update `database/music.json` with your new entries.
+3. Update `database/music.json` with your new entries and set `"enabled": true` if you want it visible.
 4. Add artist profile images and info JSON in `/artist/` and `/artist-info/`.
 
 ---
@@ -163,3 +163,9 @@ fetch('database/music.json')
 * Add your songs, covers, and metadata
 * Update `music.json` accordingly
 * Submit a pull request
+
+---
+
+## 📄 License
+
+This repository is free to use for personal and commercial projects.
