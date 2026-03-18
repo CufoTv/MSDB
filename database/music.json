@@ -39,6 +39,16 @@
       "artist_info": "artist-info/finem.json",
       "release_date": "2025-10-06",
       "enabled": true
+    }, 
+    {
+      "title": "Rap Star",
+      "artist": "Fero",
+      "cover": "cover/singles/rap-star.jpg",
+      "song": "songs/singles/rap-star.mp3",
+      "artist_profile": "artist/fero.jpg",
+      "artist_info": "artist-info/fero.json",
+      "release_date": "2022-02-01",
+      "enabled": true
     }
   ]
 }
