@@ -1,0 +1,13 @@
+[
+  {
+    "type": "banner",
+    "image": "/ads/banner/kfc.jpg",
+    "link": "https://kfckosova.com/",
+    "enabled": true
+  },
+  {
+    "type": "audio",
+    "file": "/ads/audio/kfc.mp3",
+    "enabled": true
+  }
+]
