@@ -105,7 +105,7 @@ music-database/
 1. **Clone the repository:**
 
 ```bash
-git clone <your-github-link>
+git clone https://github.com/CufoTv/MSDB.git
 ```
 
 2. **Access the JSON data in your website:**
