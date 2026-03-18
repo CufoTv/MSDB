@@ -1,22 +1,41 @@
 {
-  "songs": [
+  "albums": [
     {
-      "title": "Song 1",
+      "title": "Album 1",
       "artist": "Artist 1",
-      "album": "Album 1",
-      "cover": "cover/album1.jpg",
-      "file": "songs/song1.mp3",
+      "cover": "cover/albums/album1.jpg",
+      "songs": [
+        "songs/albums/song1.mp3",
+        "songs/albums/song2.mp3"
+      ],
       "artist_profile": "artist/artist1.jpg",
-      "artist_info": "artist-info/artist1.json"
-    },
+      "artist_info": "artist-info/artist1.json",
+      "release_date": "2025-06-01"
+    }
+  ],
+  "eps": [
     {
-      "title": "Song 2",
+      "title": "EP 1",
       "artist": "Artist 2",
-      "album": "Album 2",
-      "cover": "cover/album2.jpg",
-      "file": "songs/song2.mp3",
+      "cover": "cover/eps/ep1.jpg",
+      "songs": [
+        "songs/eps/ep1-song1.mp3",
+        "songs/eps/ep1-song2.mp3"
+      ],
       "artist_profile": "artist/artist2.jpg",
-      "artist_info": "artist-info/artist2.json"
+      "artist_info": "artist-info/artist2.json",
+      "release_date": "2025-08-15"
+    }
+  ],
+  "singles": [
+    {
+      "title": "Single 1",
+      "artist": "Artist 3",
+      "cover": "cover/singles/single1.jpg",
+      "song": "songs/singles/single1.mp3",
+      "artist_profile": "artist/artist3.jpg",
+      "artist_info": "artist-info/artist3.json",
+      "release_date": "2025-09-10"
     }
   ]
 }
