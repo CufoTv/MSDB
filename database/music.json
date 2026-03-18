@@ -1,20 +1,29 @@
 {
   "albums": [
     {
-      "title": "Album 1",
-      "artist": "Artist 1",
-      "release_date": "2025-06-01",
+      "title": "FMF",
+      "artist": "Artur",
+      "release_date": "2022‑09‑27",
       "enabled": false,
 
-      "cover": "cover/albums/album1.jpg",
+      "cover": "cover/albums/fmf.jpg",
 
       "songs": [
-        "songs/albums/song1.mp3",
-        "songs/albums/song2.mp3"
+        "songs/albums/enter.mp3",
+        "songs/albums/f.m.f.mp3",
+        "songs/albums/anormal.mp3",
+        "songs/albums/motorola.mp3",
+        "songs/albums/cocaina.mp3",
+        "songs/albums/up-and-down.mp3",
+        "songs/albums/dilema.mp3",
+        "songs/albums/no-love.mp3",
+        "songs/albums/1-shok.mp3",
+        "songs/albums/mein-bruder.mp3",
+        "songs/albums/exit.mp3"
       ],
 
-      "artist_profile": "artist/artist1.jpg",
-      "artist_info": "artist-info/artist1.json"
+      "artist_profile": "artist/artur.jpg",
+      "artist_info": "artist-info/artur.json"
     }
   ],
 
