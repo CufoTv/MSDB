@@ -3,52 +3,64 @@
     {
       "title": "Album 1",
       "artist": "Artist 1",
+      "release_date": "2025-06-01",
+      "enabled": false,
+
       "cover": "cover/albums/album1.jpg",
+
       "songs": [
         "songs/albums/song1.mp3",
         "songs/albums/song2.mp3"
       ],
+
       "artist_profile": "artist/artist1.jpg",
-      "artist_info": "artist-info/artist1.json",
-      "release_date": "2025-06-01",
-      "enabled": false
+      "artist_info": "artist-info/artist1.json"
     }
   ],
+
   "eps": [
     {
       "title": "EP 1",
       "artist": "Artist 2",
+      "release_date": "2025-08-15",
+      "enabled": false,
+
       "cover": "cover/eps/ep1.jpg",
+
       "songs": [
         "songs/eps/ep1-song1.mp3",
         "songs/eps/ep1-song2.mp3"
       ],
+
       "artist_profile": "artist/artist2.jpg",
-      "artist_info": "artist-info/artist2.json",
-      "release_date": "2025-08-15",
-      "enabled": false
+      "artist_info": "artist-info/artist2.json"
     }
   ],
+
   "singles": [
     {
       "title": "Akoma",
       "artist": "Finem",
+      "release_date": "2025-10-06",
+      "enabled": true,
+
       "cover": "cover/singles/akoma.jpg",
       "song": "songs/singles/akoma.mp3",
+
       "artist_profile": "artist/finem.jpg",
-      "artist_info": "artist-info/finem.json",
-      "release_date": "2025-10-06",
-      "enabled": true
-    }, 
+      "artist_info": "artist-info/finem.json"
+    },
     {
       "title": "Rap Star",
       "artist": "Fero",
+      "release_date": "2022-02-01",
+      "enabled": true,
+
       "cover": "cover/singles/rap-star.jpg",
       "song": "songs/singles/Rap-Star.mp3",
+
       "artist_profile": "artist/fero.jpg",
-      "artist_info": "artist-info/fero.json",
-      "release_date": "2022-02-01",
-      "enabled": true
+      "artist_info": "artist-info/fero.json"
     }
   ]
 }
