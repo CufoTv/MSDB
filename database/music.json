@@ -10,7 +10,8 @@
       ],
       "artist_profile": "artist/artist1.jpg",
       "artist_info": "artist-info/artist1.json",
-      "release_date": "2025-06-01"
+      "release_date": "2025-06-01",
+      "enabled": true
     }
   ],
   "eps": [
@@ -24,7 +25,8 @@
       ],
       "artist_profile": "artist/artist2.jpg",
       "artist_info": "artist-info/artist2.json",
-      "release_date": "2025-08-15"
+      "release_date": "2025-08-15",
+      "enabled": true
     }
   ],
   "singles": [
@@ -35,7 +37,8 @@
       "song": "songs/singles/akoma.mp3",
       "artist_profile": "artist/finem.jpg",
       "artist_info": "artist-info/finem.json",
-      "release_date": "2025‑10‑06"
+      "release_date": "2025-10-06",
+      "enabled": true
     }
   ]
 }
