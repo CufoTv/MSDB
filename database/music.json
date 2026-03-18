@@ -61,6 +61,18 @@
 
       "artist_profile": "artist/fero.jpg",
       "artist_info": "artist-info/fero.json"
+    },
+    {
+      "title": "ESCOBAR",
+      "artist": "Finem",
+      "release_date": "2025-07-05",
+      "enabled": true,
+
+      "cover": "cover/singles/ESCOBAR.jpg",
+      "song": "songs/singles/ESCOBAR.mp3",
+
+      "artist_profile": "artist/finem.jpg",
+      "artist_info": "artist-info/finem.json"
     }
   ]
 }
