@@ -11,7 +11,7 @@
       "artist_profile": "artist/artist1.jpg",
       "artist_info": "artist-info/artist1.json",
       "release_date": "2025-06-01",
-      "enabled": false
+      "enabled": true
     }
   ],
   "eps": [
