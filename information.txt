@@ -1,0 +1,9 @@
+This is a music database repository for websites.
+- Add this repository to your project.
+- Use the JSON and file paths to display songs, covers, and artist info.
+- File structure:
+    /database/music.json
+    /songs/*.mp3
+    /cover/*.jpg
+    /artist/*.jpg
+    /artist-info/*.json
