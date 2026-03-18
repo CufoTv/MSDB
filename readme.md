@@ -1,18 +1,21 @@
 # 🎵 Music Database for Websites
 
-A **self-contained music database** for websites and web apps.  
-Easily include albums, EPs, and singles with covers, songs, artist profiles, and metadata in JSON format. Users can clone the repository and start using it immediately.
+A self-contained **music database** for websites and web apps.  
+Easily include **albums, EPs, and singles** with covers, songs, artist profiles, and metadata in JSON format. Users can clone the repository and start using it immediately.
 
 ---
 
 ## 🌟 Features
 
-- Organized support for **Albums**, **EPs**, and **Singles**
-- **JSON metadata** for songs, albums, and artists
-- Artist profile images and detailed info (monthly listeners, bio)
-- **Enable/disable** any song, album, EP, or single using an `enabled` flag
-- Ready-to-use file structure for web integration
-- Fully compatible with any JavaScript-based website or music player
+- Organized support for **Albums**, **EPs**, and **Singles**  
+- **JSON metadata** for songs, albums, and artists  
+- Artist profile images and detailed info (monthly listeners, bio)  
+- **Enable/disable any song, album, EP, or single** using an `enabled` flag  
+- **Ads system** for free users:
+  - Banner ads  
+  - Audio ads  
+- Ready-to-use file structure for web integration  
+- Fully compatible with any JavaScript-based website or music player  
 
 ---
 
@@ -23,6 +26,8 @@ Easily include albums, EPs, and singles with covers, songs, artist profiles, and
 music-database/
 ├─ database/
 │  └─ music.json            # Main JSON listing all albums, EPs, and singles
+├─ ads/
+│  └─ ads.json              # Banner and audio ads for free users
 ├─ cover/
 │  ├─ albums/               # Album cover images
 │  ├─ eps/                  # EP cover images
@@ -35,7 +40,8 @@ music-database/
 │  └─ <artist_name>.jpg     # Artist profile pictures
 ├─ artist-info/
 │  └─ <artist_name>.json    # Artist metadata (monthly listeners, bio)
-└─ information.txt          # General info about this database
+├─ information.txt          # General info about this database
+└─ connect.js               # Fetch and control music & ads data
 
 ````
 
@@ -57,7 +63,7 @@ music-database/
       "artist_profile": "artist/artist1.jpg",
       "artist_info": "artist-info/artist1.json",
       "release_date": "2025-06-01",
-      "enabled": true
+      "enabled": false
     }
   ],
   "eps": [
@@ -72,7 +78,7 @@ music-database/
       "artist_profile": "artist/artist2.jpg",
       "artist_info": "artist-info/artist2.json",
       "release_date": "2025-08-15",
-      "enabled": true
+      "enabled": false
     }
   ],
   "singles": [
@@ -90,7 +96,7 @@ music-database/
 }
 ````
 
-> ⚡ **Tip:** Set `"enabled": false` to temporarily hide any album, EP, or single from your website without removing the files.
+> ⚡ Tip: Disabled items (`"enabled": false`) are **completely hidden** until `"enabled": true`.
 
 ---
 
@@ -106,37 +112,59 @@ music-database/
 
 ---
 
+## 📄 Example Ads (`ads/ads.json`)
+
+```json
+[
+  {
+    "type": "banner",
+    "image": "/ads/banner/kfc.jpg",
+    "link": "https://kfckosova.com/",
+    "enabled": true
+  },
+  {
+    "type": "audio",
+    "file": "/ads/audio/KFC.mp3",
+    "enabled": true
+  }
+]
+```
+
+> ⚡ Tip: Only **enabled ads** are shown for free users. Premium users skip ads completely.
+
+---
+
 ## 🚀 Getting Started
 
-1. **Clone the repository:**
+### 1. Clone the repository:
 
 ```bash
 git clone https://github.com/CufoTv/MSDB.git
 ```
 
-2. **Access the JSON data in your website:**
+### 2. Fetch and use music and ads with `connect.js`
 
 ```javascript
-fetch('database/music.json')
-  .then(res => res.json())
-  .then(data => {
-    // Filter only enabled albums, EPs, and singles
-    const albums = data.albums.filter(album => album.enabled);
-    const eps = data.eps.filter(ep => ep.enabled);
-    const singles = data.singles.filter(single => single.enabled);
+import { getMusic, getAds } from './connect.js';
 
-    console.log("Albums:", albums);
-    console.log("EPs:", eps);
-    console.log("Singles:", singles);
-  });
+// Free user
+async function startFreeUser() {
+    const music = await getMusic();  // Only enabled music
+    const ads = await getAds();      // Only enabled ads
+    console.log("Music:", music);
+    console.log("Ads:", ads);
+}
+
+// Premium user
+async function startPremiumUser() {
+    const music = await getMusic();  // Only enabled music
+    console.log("Music:", music);
+}
+
+startFreeUser();
 ```
 
-3. **Use file paths from `music.json`** to display:
-
-* Songs (`songs/...`)
-* Album/EP/Single covers (`cover/...`)
-* Artist profiles (`artist/...`)
-* Artist info (`artist-info/...`)
+> Disabled items are **completely removed** and cannot be accessed until `"enabled": true`.
 
 ---
 
@@ -144,28 +172,43 @@ fetch('database/music.json')
 
 1. Add song files to the appropriate folder:
 
-   * `/songs/albums/`
-   * `/songs/eps/`
-   * `/songs/singles/`
+```
+/songs/albums/
+/songs/eps/
+/songs/singles/
+```
+
 2. Add cover images:
 
-   * `/cover/albums/`
-   * `/cover/eps/`
-   * `/cover/singles/`
-3. Update `database/music.json` with your new entries and set `"enabled": true` if you want it visible.
+```
+/cover/albums/
+/cover/eps/
+/cover/singles/
+```
+
+3. Update `database/music.json` with your new entries.
 4. Add artist profile images and info JSON in `/artist/` and `/artist-info/`.
+5. Set `"enabled": true` to make the item visible.
+
+---
+
+## 🛠️ Adding Your Own Ads
+
+1. Add banner images to `/ads/banner/` and audio ads to `/ads/audio/`
+2. Update `/ads/ads.json` with your new ad entries
+3. Set `"enabled": true` to show the ad for free users
 
 ---
 
 ## 🤝 Contributing
 
 * Fork the repository
-* Add your songs, covers, and metadata
-* Update `music.json` accordingly
+* Add your songs, covers, ads, and metadata
+* Update `music.json` or `ads.json` accordingly
 * Submit a pull request
 
 ---
 
 ## 📄 License
 
-This repository is free to use for personal and commercial projects.
+Free to use for personal and commercial projects.
