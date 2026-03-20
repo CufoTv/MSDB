@@ -82,6 +82,18 @@
 
       "artist_profile": "artist/finem.jpg",
       "artist_info": "artist-info/finem.json"
+    },
+    {
+      "title": "CLIG CLAG",
+      "artist": "Mefa",
+      "release_date": "2020-08-09",
+      "enabled": true,
+
+      "cover": "cover/singles/cligclag.jpg",
+      "song": "songs/singles/cligclag.mp3",
+
+      "artist_profile": "artist/mefa.jpg",
+      "artist_info": "artist-info/mefa.json"
     }
   ]
 }
