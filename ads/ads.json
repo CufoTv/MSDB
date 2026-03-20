@@ -9,5 +9,10 @@
     "type": "audio",
     "file": "/ads/audio/KFC.mp3",
     "enabled": true
+  },
+  {
+    "type": "audio",
+    "file": "/ads/audio/SOTA.mp3",
+    "enabled": true
   }
 ]
