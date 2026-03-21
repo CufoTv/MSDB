@@ -158,6 +158,16 @@
       "song": "songs/singles/bonoland.mp3",
       "artist_profile": "artist/bono.jpg",
       "artist_info": "artist-info/bono.json"
+    },
+    {
+      "title": "Marrëzisht",
+      "artist": "Bono",
+      "release_date": "2020-01-04",
+      "enabled": true,
+      "cover": "cover/singles/marrëzisht.jpg",
+      "song": "songs/singles/marrëzisht.mp3",
+      "artist_profile": "artist/bono.jpg",
+      "artist_info": "artist-info/bono.json"
     }
   ]
 }
