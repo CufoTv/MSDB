@@ -106,6 +106,18 @@
 
   "artist_profile": "artist/morad.jpg",
   "artist_info": "artist-info/morad.json"
+    },
+    {
+  "title": "Normal",
+  "artist": "Morad",
+  "release_date": "2020-07-10",
+  "enabled": true,
+
+  "cover": "cover/singles/normal.jpg",
+  "song": "songs/singles/normal.mp3",
+
+  "artist_profile": "artist/morad.jpg",
+  "artist_info": "artist-info/morad.json"
     }
   ]
 }
