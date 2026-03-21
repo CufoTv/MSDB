@@ -118,6 +118,18 @@
 
   "artist_profile": "artist/morad.jpg",
   "artist_info": "artist-info/morad.json"
+    },
+    {
+  "title": "SIGUE",
+  "artist": "Morad",
+  "release_date": "2022-01-04",
+  "enabled": true,
+
+  "cover": "cover/singles/sigue.jpg",
+  "song": "songs/singles/sigue.mp3",
+
+  "artist_profile": "artist/morad.jpg",
+  "artist_info": "artist-info/morad.json"
     }
   ]
 }
