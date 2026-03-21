@@ -94,6 +94,18 @@
 
       "artist_profile": "artist/mefa.jpg",
       "artist_info": "artist-info/mefa.json"
+    },
+    {
+  "title": "No Me Duele",
+  "artist": "Morad",
+  "release_date": "2024-10-07",
+  "enabled": true,
+
+  "cover": "cover/singles/no-me-duele.jpg",
+  "song": "songs/singles/no-me-duele.mp3",
+
+  "artist_profile": "artist/morad.jpg",
+  "artist_info": "artist-info/morad.json"
     }
   ]
 }
