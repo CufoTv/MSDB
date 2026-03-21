@@ -148,6 +148,16 @@
       "song": "songs/singles/adrenalin.mp3",
       "artist_profile": "artist/fero.jpg",
       "artist_info": "artist-info/fero.json"
+    },
+    {
+      "title": "Bonoland",
+      "artist": "Bono",
+      "release_date": "2020-03-17",
+      "enabled": true,
+      "cover": "cover/singles/bonoland.jpg",
+      "song": "songs/singles/bonoland.mp3",
+      "artist_profile": "artist/bono.jpg",
+      "artist_info": "artist-info/bono.json"
     }
   ]
 }
