@@ -5,9 +5,7 @@
       "artist": "Artur",
       "release_date": "2022-09-27",
       "enabled": true,
-
       "cover": "cover/albums/fmf.jpg",
-
       "songs": [
         "songs/albums/enter.mp3",
         "songs/albums/f.m.f.mp3",
@@ -21,41 +19,33 @@
         "songs/albums/mein-bruder.mp3",
         "songs/albums/exit.mp3"
       ],
-
       "artist_profile": "artist/artur.jpg",
       "artist_info": "artist-info/artur.json"
     }
   ],
-
   "eps": [
     {
       "title": "EP 1",
       "artist": "Artist 2",
       "release_date": "2025-08-15",
       "enabled": false,
-
       "cover": "cover/eps/ep1.jpg",
-
       "songs": [
         "songs/eps/ep1-song1.mp3",
         "songs/eps/ep1-song2.mp3"
       ],
-
       "artist_profile": "artist/artist2.jpg",
       "artist_info": "artist-info/artist2.json"
     }
   ],
-
   "singles": [
     {
       "title": "Akoma",
       "artist": "Finem",
       "release_date": "2025-10-06",
       "enabled": true,
-
       "cover": "cover/singles/akoma.jpg",
       "song": "songs/singles/akoma.mp3",
-
       "artist_profile": "artist/finem.jpg",
       "artist_info": "artist-info/finem.json"
     },
@@ -64,10 +54,8 @@
       "artist": "Fero",
       "release_date": "2022-02-01",
       "enabled": true,
-
       "cover": "cover/singles/rap-star.jpg",
       "song": "songs/singles/Rap-Star.mp3",
-
       "artist_profile": "artist/fero.jpg",
       "artist_info": "artist-info/fero.json"
     },
@@ -76,10 +64,8 @@
       "artist": "Finem",
       "release_date": "2025-07-05",
       "enabled": true,
-
       "cover": "cover/singles/ESCOBAR.jpg",
       "song": "songs/singles/ESCOBAR.mp3",
-
       "artist_profile": "artist/finem.jpg",
       "artist_info": "artist-info/finem.json"
     },
@@ -88,10 +74,8 @@
       "artist": "Mefa",
       "release_date": "2020-08-09",
       "enabled": true,
-
       "cover": "cover/singles/cligclag.jpg",
       "song": "songs/singles/cligclag.mp3",
-
       "artist_profile": "artist/mefa.jpg",
       "artist_info": "artist-info/mefa.json"
     },
@@ -100,10 +84,8 @@
       "artist": "Morad",
       "release_date": "2024-10-07",
       "enabled": true,
-
       "cover": "cover/singles/no-me-duele.jpg",
       "song": "songs/singles/no-me-duele.mp3",
-
       "artist_profile": "artist/morad.jpg",
       "artist_info": "artist-info/morad.json"
     },
@@ -112,10 +94,8 @@
       "artist": "Morad",
       "release_date": "2020-07-10",
       "enabled": true,
-
       "cover": "cover/singles/normal.jpg",
       "song": "songs/singles/normal.mp3",
-
       "artist_profile": "artist/morad.jpg",
       "artist_info": "artist-info/morad.json"
     },
@@ -124,10 +104,8 @@
       "artist": "Morad",
       "release_date": "2022-01-04",
       "enabled": true,
-
       "cover": "cover/singles/sigue.jpg",
       "song": "songs/singles/sigue.mp3",
-
       "artist_profile": "artist/morad.jpg",
       "artist_info": "artist-info/morad.json"
     },
@@ -136,10 +114,8 @@
       "artist": "Finem",
       "release_date": "2025-06-09",
       "enabled": true,
-
       "cover": "cover/singles/77777.jpg",
       "song": "songs/singles/77777.mp3",
-
       "artist_profile": "artist/finem.jpg",
       "artist_info": "artist-info/finem.json"
     },
@@ -148,10 +124,8 @@
       "artist": "Finem",
       "release_date": "2023-07-28",
       "enabled": true,
-
       "cover": "cover/singles/lutem.jpg",
       "song": "songs/singles/lutem.mp3",
-
       "artist_profile": "artist/finem.jpg",
       "artist_info": "artist-info/finem.json"
     },
@@ -160,10 +134,8 @@
       "artist": "Finem",
       "release_date": "2025-10-01",
       "enabled": true,
-
       "cover": "cover/singles/stil-anakonde.jpg",
       "song": "songs/singles/stil-anakonde.mp3",
-
       "artist_profile": "artist/finem.jpg",
       "artist_info": "artist-info/finem.json"
     }
