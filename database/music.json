@@ -130,6 +130,18 @@
 
   "artist_profile": "artist/morad.jpg",
   "artist_info": "artist-info/morad.json"
+    },
+    {
+      "title": "77777",
+      "artist": "Finem",
+      "release_date": "2025-06-09",
+      "enabled": true,
+
+      "cover": "cover/singles/77777.jpg",
+      "song": "songs/singles/77777.mp3",
+
+      "artist_profile": "artist/finem.jpg",
+      "artist_info": "artist-info/finem.json"
     }
   ]
 }
