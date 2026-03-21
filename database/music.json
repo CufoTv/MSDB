@@ -138,6 +138,16 @@
       "song": "songs/singles/stil-anakonde.mp3",
       "artist_profile": "artist/finem.jpg",
       "artist_info": "artist-info/finem.json"
+    },
+    {
+      "title": "Adrenalin",
+      "artist": "Fero",
+      "release_date": "2020-03-05",
+      "enabled": true,
+      "cover": "cover/singles/adrenalin.jpg",
+      "song": "songs/singles/adrenalin.mp3",
+      "artist_profile": "artist/fero.jpg",
+      "artist_info": "artist-info/fero.json"
     }
   ]
 }
