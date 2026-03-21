@@ -8,18 +8,18 @@
 
       "cover": "cover/albums/fmf.jpg",
 
-      "tracks": [
-        { "title": "Enter", "file": "songs/albums/enter.mp3" },
-        { "title": "F.M.F", "file": "songs/albums/f.m.f.mp3" },
-        { "title": "Anormal", "file": "songs/albums/anormal.mp3" },
-        { "title": "Motorola", "file": "songs/albums/motorola.mp3" },
-        { "title": "Cocaina", "file": "songs/albums/cocaina.mp3" },
-        { "title": "Up and Down", "file": "songs/albums/up-and-down.mp3" },
-        { "title": "Dilema", "file": "songs/albums/dilema.mp3" },
-        { "title": "No Love", "file": "songs/albums/no-love.mp3" },
-        { "title": "1 Shok", "file": "songs/albums/1-shok.mp3" },
-        { "title": "Mein Bruder", "file": "songs/albums/mein-bruder.mp3" },
-        { "title": "Exit", "file": "songs/albums/exit.mp3" }
+      "songs": [
+        "songs/albums/enter.mp3",
+        "songs/albums/f.m.f.mp3",
+        "songs/albums/anormal.mp3",
+        "songs/albums/motorola.mp3",
+        "songs/albums/cocaina.mp3",
+        "songs/albums/up-and-down.mp3",
+        "songs/albums/dilema.mp3",
+        "songs/albums/no-love.mp3",
+        "songs/albums/1-shok.mp3",
+        "songs/albums/mein-bruder.mp3",
+        "songs/albums/exit.mp3"
       ],
 
       "artist_profile": "artist/artur.jpg",
@@ -36,9 +36,9 @@
 
       "cover": "cover/eps/ep1.jpg",
 
-      "tracks": [
-        { "title": "EP1 Song 1", "file": "songs/eps/ep1-song1.mp3" },
-        { "title": "EP1 Song 2", "file": "songs/eps/ep1-song2.mp3" }
+      "songs": [
+        "songs/eps/ep1-song1.mp3",
+        "songs/eps/ep1-song2.mp3"
       ],
 
       "artist_profile": "artist/artist2.jpg",
@@ -54,7 +54,7 @@
       "enabled": true,
 
       "cover": "cover/singles/akoma.jpg",
-      "file": "songs/singles/akoma.mp3",
+      "song": "songs/singles/akoma.mp3",
 
       "artist_profile": "artist/finem.jpg",
       "artist_info": "artist-info/finem.json"
@@ -66,7 +66,7 @@
       "enabled": true,
 
       "cover": "cover/singles/rap-star.jpg",
-      "file": "songs/singles/Rap-Star.mp3",
+      "song": "songs/singles/Rap-Star.mp3",
 
       "artist_profile": "artist/fero.jpg",
       "artist_info": "artist-info/fero.json"
@@ -78,7 +78,7 @@
       "enabled": true,
 
       "cover": "cover/singles/ESCOBAR.jpg",
-      "file": "songs/singles/ESCOBAR.mp3",
+      "song": "songs/singles/ESCOBAR.mp3",
 
       "artist_profile": "artist/finem.jpg",
       "artist_info": "artist-info/finem.json"
@@ -90,7 +90,7 @@
       "enabled": true,
 
       "cover": "cover/singles/cligclag.jpg",
-      "file": "songs/singles/cligclag.mp3",
+      "song": "songs/singles/cligclag.mp3",
 
       "artist_profile": "artist/mefa.jpg",
       "artist_info": "artist-info/mefa.json"
@@ -102,7 +102,7 @@
       "enabled": true,
 
       "cover": "cover/singles/no-me-duele.jpg",
-      "file": "songs/singles/no-me-duele.mp3",
+      "song": "songs/singles/no-me-duele.mp3",
 
       "artist_profile": "artist/morad.jpg",
       "artist_info": "artist-info/morad.json"
@@ -114,7 +114,7 @@
       "enabled": true,
 
       "cover": "cover/singles/normal.jpg",
-      "file": "songs/singles/normal.mp3",
+      "song": "songs/singles/normal.mp3",
 
       "artist_profile": "artist/morad.jpg",
       "artist_info": "artist-info/morad.json"
@@ -126,7 +126,7 @@
       "enabled": true,
 
       "cover": "cover/singles/sigue.jpg",
-      "file": "songs/singles/sigue.mp3",
+      "song": "songs/singles/sigue.mp3",
 
       "artist_profile": "artist/morad.jpg",
       "artist_info": "artist-info/morad.json"
@@ -138,7 +138,7 @@
       "enabled": true,
 
       "cover": "cover/singles/77777.jpg",
-      "file": "songs/singles/77777.mp3",
+      "song": "songs/singles/77777.mp3",
 
       "artist_profile": "artist/finem.jpg",
       "artist_info": "artist-info/finem.json"
@@ -150,7 +150,7 @@
       "enabled": true,
 
       "cover": "cover/singles/lutem.jpg",
-      "file": "songs/singles/lutem.mp3",
+      "song": "songs/singles/lutem.mp3",
 
       "artist_profile": "artist/finem.jpg",
       "artist_info": "artist-info/finem.json"
@@ -162,7 +162,7 @@
       "enabled": true,
 
       "cover": "cover/singles/stil-anakonde.jpg",
-      "file": "songs/singles/stil-anakonde.mp3",
+      "song": "songs/singles/stil-anakonde.mp3",
 
       "artist_profile": "artist/finem.jpg",
       "artist_info": "artist-info/finem.json"
