@@ -1,21 +1,41 @@
-# 🎵 Music Database for Websites
+# MSDB – Music Database for Websites (Advanced Version)
 
-A self-contained **music database** for websites and web apps.  
-Easily include **albums, EPs, and singles** with covers, songs, artist profiles, and metadata in JSON format. Users can clone the repository and start using it immediately.
+A self-contained music database for websites and web apps with **Spotify-level features**. Includes albums, EPs, singles, artist profiles, metadata, smart recommendations, lyrics support, offline caching, and an advanced ad system.
 
 ---
 
 ## 🌟 Features
 
-- Organized support for **Albums**, **EPs**, and **Singles**  
-- **JSON metadata** for songs, albums, and artists  
-- Artist profile images and detailed info (monthly listeners, bio)  
-- **Enable/disable any song, album, EP, or single** using an `enabled` flag  
-- **Ads system** for free users:
-  - Banner ads  
-  - Audio ads  
-- Ready-to-use file structure for web integration  
-- Fully compatible with any JavaScript-based website or music player  
+### Core Features
+- Support for **Albums, EPs, and Singles**
+- **JSON metadata** for songs, albums, artists
+- **Artist profile images** and detailed info (monthly listeners, bio, genres)
+- Enable/disable any song, album, EP, or single using an `enabled` flag
+- **Music genres** and **tags** for categorization
+- **Optional lyrics** (loaded only for signed-in users)
+- **Automatic duration detection** from MP3s (not displayed in UI)
+  
+### Advanced Features
+- **Ultra-smart shuffle** (avoids consecutive same artist or tag)
+- **Play counts, skip counts, and listening analytics**
+- **User listening history**
+- **Collaborative filtering** (user-to-user recommendations)
+- **Recommendation graph** (AI-like song suggestions)
+- **Daily Mix generator** (personalized playlists)
+- **Radio mode** (infinite similar songs)
+- **Genre stations**
+- **Playlist generator** (by artist, genre, or random)
+- **Trending algorithm** (time-decay scoring)
+- **Viral detection**
+- **Skip-rate detection**
+- **Music popularity heatmap**
+- **Lyrics loader** (users only)
+- **Offline caching** of music files
+- **Ad system**:
+  - Guests: ads every 1–2 songs
+  - Signed-in users: ads every 2–4 songs
+  - Premium users: no ads
+  - Music pauses automatically during audio ads
 
 ---
 
@@ -25,187 +45,157 @@ Easily include **albums, EPs, and singles** with covers, songs, artist profiles,
 
 music-database/
 ├─ database/
-│  └─ music.json            # Main JSON listing all albums, EPs, and singles
+│  └─ music.json            # Main JSON with albums, EPs, singles, tracks, artists, genres
 ├─ ads/
 │  └─ ads.json              # Banner and audio ads for free users
 ├─ cover/
-│  ├─ albums/               # Album cover images
-│  ├─ eps/                  # EP cover images
-│  └─ singles/              # Single cover images
+│  ├─ albums/
+│  ├─ eps/
+│  └─ singles/
 ├─ songs/
-│  ├─ albums/               # Songs in albums
-│  ├─ eps/                  # Songs in EPs
-│  └─ singles/              # Single songs
+│  ├─ albums/
+│  ├─ eps/
+│  └─ singles/
 ├─ artist/
-│  └─ <artist_name>.jpg     # Artist profile pictures
+│  └─ <artist_name>.jpg
 ├─ artist-info/
-│  └─ <artist_name>.json    # Artist metadata (monthly listeners, bio)
-├─ information.txt          # General info about this database
-└─ connect.js               # Fetch and control music & ads data
+│  └─ <artist_name>.json    # Artist metadata including genres
+├─ lyrics/
+│  └─ <song_name>.lrc       # Optional song lyrics
+├─ connect.js                # Advanced music & ad engine
+└─ information.txt           # General info about the database
 
 ````
 
 ---
 
-## 📝 Example `music.json` with Enable/Disable
+## 📝 Example `music.json`
 
 ```json
 {
+  "artists": [
+    {
+      "id": "art_artur",
+      "name": "Artur",
+      "profile": "artist/artur.jpg",
+      "info": "artist-info/artur.json",
+      "genres": ["rap", "albanian"]
+    }
+  ],
   "albums": [
     {
-      "title": "Album 1",
-      "artist": "Artist 1",
-      "cover": "cover/albums/album1.jpg",
-      "songs": [
-        "songs/albums/song1.mp3",
-        "songs/albums/song2.mp3"
-      ],
-      "artist_profile": "artist/artist1.jpg",
-      "artist_info": "artist-info/artist1.json",
-      "release_date": "2025-06-01",
-      "enabled": false
+      "id": "alb_fmf",
+      "title": "FMF",
+      "artists": ["art_artur"],
+      "release_date": "2022-09-27",
+      "cover": "cover/albums/fmf.jpg",
+      "enabled": true,
+      "genre": ["rap"],
+      "tags": ["rap", "albanian"],
+      "tracks": ["trk_fmf_01", "trk_fmf_02"]
     }
   ],
-  "eps": [
+  "tracks": [
     {
-      "title": "EP 1",
-      "artist": "Artist 2",
-      "cover": "cover/eps/ep1.jpg",
-      "songs": [
-        "songs/eps/ep1-song1.mp3",
-        "songs/eps/ep1-song2.mp3"
-      ],
-      "artist_profile": "artist/artist2.jpg",
-      "artist_info": "artist-info/artist2.json",
-      "release_date": "2025-08-15",
-      "enabled": false
-    }
-  ],
-  "singles": [
-    {
-      "title": "Akoma",
-      "artist": "Finem",
-      "cover": "cover/singles/akoma.jpg",
-      "song": "songs/singles/akoma.mp3",
-      "artist_profile": "artist/finem.jpg",
-      "artist_info": "artist-info/finem.json",
-      "release_date": "2025-10-06",
+      "id": "trk_fmf_01",
+      "title": "Enter",
+      "artists": ["art_artur"],
+      "album": "alb_fmf",
+      "track_number": 1,
+      "file": "songs/albums/enter.mp3",
+      "release_date": "2022-09-27",
+      "genre": ["rap"],
+      "tags": ["intro"],
+      "lyrics": "lyrics/enter.lrc",
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
       "enabled": true
     }
-  ]
+  ],
+  "genres": ["rap","afrobeats","pop","drill","trap","urban"]
 }
 ````
 
-> ⚡ Tip: Disabled items (`"enabled": false`) are **completely hidden** until `"enabled": true`.
-
----
-
-## 👤 Example Artist Info (`artist-info/<artist_name>.json`)
-
-```json
-{
-  "name": "Finem",
-  "monthly_listeners": 250000,
-  "description": "Finem is an Afrobeat artist known for catchy rhythms and strong vocals."
-}
-```
-
----
-
-## 📄 Example Ads (`ads/ads.json`)
-
-```json
-[
-  {
-    "type": "banner",
-    "image": "/ads/banner/kfc.jpg",
-    "link": "https://kfckosova.com/",
-    "enabled": true
-  },
-  {
-    "type": "audio",
-    "file": "/ads/audio/KFC.mp3",
-    "enabled": true
-  }
-]
-```
-
-> ⚡ Tip: Only **enabled ads** are shown for free users. Premium users skip ads completely.
+⚡ Tip: If `lyrics` is missing or `null`, the song has **no lyrics**.
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone the repository:
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/CufoTv/MSDB.git
 ```
 
-### 2. Fetch and use music and ads with `connect.js`
+2. Import and use the advanced engine:
 
 ```javascript
-import { getMusic, getAds } from './connect.js';
-
-// Free user
-async function startFreeUser() {
-    const music = await getMusic();  // Only enabled music
-    const ads = await getAds();      // Only enabled ads
-    console.log("Music:", music);
-    console.log("Ads:", ads);
-}
-
-// Premium user
-async function startPremiumUser() {
-    const music = await getMusic();  // Only enabled music
-    console.log("Music:", music);
-}
-
-startFreeUser();
+import { loadMusic, getAllSongs, autoplay, maybePlayAd } from './connect.js';
 ```
 
-> Disabled items are **completely removed** and cannot be accessed until `"enabled": true`.
+3. **Free user example**:
+
+```javascript
+async function startFreeUser() {
+  const music = await getAllSongs();
+  const player = new Audio();
+  const playlist = music;
+
+  autoplay(player, playlist, { value: 0 }, "guest");
+  console.log("Music loaded:", music);
+}
+```
+
+4. **Premium user example**:
+
+```javascript
+async function startPremiumUser() {
+  const music = await getAllSongs();
+  console.log("Music loaded:", music);
+}
+```
 
 ---
 
 ## 🛠️ Adding Your Own Music
 
-1. Add song files to the appropriate folder:
+1. Add song files to:
 
 ```
-/songs/albums/
-/songs/eps/
-/songs/singles/
+/songs/albums/  /songs/eps/  /songs/singles/
 ```
 
 2. Add cover images:
 
 ```
-/cover/albums/
-/cover/eps/
-/cover/singles/
+/cover/albums/  /cover/eps/  /cover/singles/
 ```
 
-3. Update `database/music.json` with your new entries.
-4. Add artist profile images and info JSON in `/artist/` and `/artist-info/`.
-5. Set `"enabled": true` to make the item visible.
+3. Update `music.json` with:
+
+* `albums`, `eps`, `singles`
+* `tracks`
+* `artists` if new artist
+* `genres` and `tags`
+* Optional lyrics in `/lyrics/` (only loaded for signed-in users)
+* `enabled: true` to show
 
 ---
 
-## 🛠️ Adding Your Own Ads
+## 🛠️ Adding Ads
 
 1. Add banner images to `/ads/banner/` and audio ads to `/ads/audio/`
-2. Update `/ads/ads.json` with your new ad entries
-3. Set `"enabled": true` to show the ad for free users
+2. Update `/ads/ads.json` with new ad entries
+3. Set `"enabled": true` to show ads for free users
 
 ---
 
 ## 🤝 Contributing
 
-* Fork the repository
-* Add your songs, covers, ads, and metadata
-* Update `music.json` or `ads.json` accordingly
-* Submit a pull request
+1. Fork the repository
+2. Add songs, covers, ads, and metadata
+3. Update `music.json` or `ads.json`
+4. Submit a pull request
 
 ---
 
