@@ -3,22 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MSDB Web Player</title>
+<title>MSDB Guest Player</title>
 <style>
-/* ---------- RESET ---------- */
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif; }
 body { background:#121212; color:#fff; }
 
-/* ---------- HEADER ---------- */
 header { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:#1f1f1f; }
 header h1 { font-size:1.5rem; color:#1db954; }
 header input { padding:.5rem 1rem; border-radius:20px; border:none; outline:none; width:200px; }
 
-/* ---------- MAIN ---------- */
 main { display:flex; flex-wrap:wrap; padding:2rem; gap:2rem; }
 .playlist, .player { flex:1; min-width:300px; }
 
-/* ---------- PLAYER ---------- */
 .player { background:#1f1f1f; padding:1rem; border-radius:12px; display:flex; flex-direction:column; align-items:center; }
 .player img { width:100%; border-radius:12px; max-height:300px; object-fit:cover; }
 .player h2 { margin-top:1rem; font-size:1.2rem; text-align:center; }
@@ -27,17 +23,14 @@ main { display:flex; flex-wrap:wrap; padding:2rem; gap:2rem; }
 .controls button { background:#1db954; border:none; padding:.5rem 1rem; border-radius:50%; cursor:pointer; color:#fff; font-size:1.5rem; transition:.2s; }
 .controls button:hover { transform:scale(1.1); }
 
-/* ---------- SONG LIST ---------- */
 .playlist h2 { margin-bottom:1rem; }
 .song-list { max-height:600px; overflow-y:auto; display:flex; flex-direction:column; gap:.5rem; }
 .song-item { background:#1a1a1a; padding:.5rem 1rem; border-radius:8px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:0.2s; }
 .song-item:hover { background:#333; }
 .song-item span { font-size:.9rem; color:#bbb; }
 
-/* ---------- AD BANNER ---------- */
 .ad-banner { margin:1rem 0; padding:1rem; background:#2a2a2a; border-radius:12px; text-align:center; color:#1db954; font-weight:bold; }
 
-/* ---------- SEARCH ---------- */
 #search { transition:.3s; }
 #search:focus { width:300px; }
 
@@ -51,7 +44,7 @@ main { display:flex; flex-wrap:wrap; padding:2rem; gap:2rem; }
 <body>
 
 <header>
-  <h1>MSDB Player</h1>
+  <h1>MSDB Guest Player</h1>
   <input id="search" type="text" placeholder="Search songs, artists...">
 </header>
 
@@ -75,12 +68,11 @@ main { display:flex; flex-wrap:wrap; padding:2rem; gap:2rem; }
 </main>
 
 <script type="module">
-import * as MSDB from './connect.js'; // Fetch the local connect.js
+import * as MSDB from './connect.js';
 
 const player = new Audio();
 let indexRef = { value:0 };
 
-// DOM elements
 const searchEl = document.getElementById("search");
 const songListEl = document.getElementById("song-list");
 const coverEl = document.getElementById("cover");
@@ -88,9 +80,37 @@ const titleEl = document.getElementById("title");
 const artistEl = document.getElementById("artist");
 const adEl = document.getElementById("ad");
 
-let musicDB = await MSDB.loadMusic();
-let songs = MSDB.ultraSmartShuffle(await MSDB.getAllSongs());
-let ads = await MSDB.loadAds();
+let songs = [];
+let ads = [];
+
+// ---------- FETCH MUSIC AND ADS ----------
+async function fetchMusic(){
+  const res = await fetch("/database/music.json");
+  const data = await res.json();
+
+  // Flatten all songs from albums, eps, and singles
+  const list = [];
+  data.albums.filter(a=>a.enabled).forEach(a=>{
+    a.tracks.filter(t=>t.enabled).forEach(t=>list.push({...t, album:a.title}));
+  });
+  data.eps.filter(e=>e.enabled).forEach(e=>{
+    e.tracks.filter(t=>t.enabled).forEach(t=>list.push({...t, ep:e.title}));
+  });
+  data.singles.filter(s=>s.enabled).forEach(s=>list.push(s));
+
+  return list;
+}
+
+async function fetchAds(){
+  const res = await fetch("/ads/ads.json");
+  const data = await res.json();
+  return data.filter(a=>a.enabled);
+}
+
+// Load songs and ads
+songs = MSDB.ultraSmartShuffle(await fetchMusic());
+ads = await fetchAds();
+renderSongs(songs);
 
 // ---------- RENDER SONG LIST ----------
 function renderSongs(list){
@@ -103,14 +123,13 @@ function renderSongs(list){
     songListEl.appendChild(div);
   });
 }
-renderSongs(songs);
 
 // ---------- PLAY SONG ----------
 async function playSong(idx){
   indexRef.value = idx;
   const song = songs[idx];
 
-  // AD SYSTEM
+  // Guest ad system: 30% chance
   if(Math.random() < 0.3 && ads.length > 0){
     adEl.style.display = "block";
     player.pause();
@@ -149,14 +168,6 @@ searchEl.addEventListener("input", e=>{
     (s.tags && s.tags.join(" ").toLowerCase().includes(query))
   ));
 });
-
-// ---------- OPTIONAL: LOAD LYRICS ----------
-async function showLyrics(song, userType="guest"){
-  if(userType==="guest") return;
-  if(!song.lyrics) return;
-  const text = await MSDB.loadLyrics(song, userType);
-  console.log("Lyrics:\n", text);
-}
 </script>
 </body>
 </html>
