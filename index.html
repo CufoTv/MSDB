@@ -75,15 +75,12 @@ main { display:flex; flex-wrap:wrap; padding:2rem; gap:2rem; }
 </main>
 
 <script type="module">
-/* --------------------------
-MSDB PLAYER INTEGRATION
--------------------------- */
-
-import * as MSDB from 'https://raw.githubusercontent.com/CufoTv/MSDB/main/connect.js';
+import * as MSDB from './connect.js'; // Fetch the local connect.js
 
 const player = new Audio();
 let indexRef = { value:0 };
 
+// DOM elements
 const searchEl = document.getElementById("search");
 const songListEl = document.getElementById("song-list");
 const coverEl = document.getElementById("cover");
@@ -92,10 +89,10 @@ const artistEl = document.getElementById("artist");
 const adEl = document.getElementById("ad");
 
 let musicDB = await MSDB.loadMusic();
-let songs = MSDB.ultraSmartShuffle(MSDB.getAllSongs(musicDB));
+let songs = MSDB.ultraSmartShuffle(await MSDB.getAllSongs());
 let ads = await MSDB.loadAds();
 
-/* ---------- RENDER SONG LIST ---------- */
+// ---------- RENDER SONG LIST ----------
 function renderSongs(list){
   songListEl.innerHTML = "";
   list.forEach((song, idx)=>{
@@ -108,13 +105,13 @@ function renderSongs(list){
 }
 renderSongs(songs);
 
-/* ---------- PLAY SONG ---------- */
+// ---------- PLAY SONG ----------
 async function playSong(idx){
   indexRef.value = idx;
   const song = songs[idx];
 
   // AD SYSTEM
-  if(Math.random()<0.3 && ads.length>0){
+  if(Math.random() < 0.3 && ads.length > 0){
     adEl.style.display = "block";
     player.pause();
     const ad = new Audio(ads[Math.floor(Math.random()*ads.length)].file);
@@ -123,7 +120,7 @@ async function playSong(idx){
   } else startAudio(song);
 }
 
-/* ---------- START AUDIO ---------- */
+// ---------- START AUDIO ----------
 function startAudio(song){
   coverEl.src = song.cover || "";
   titleEl.textContent = song.title;
@@ -135,15 +132,15 @@ function startAudio(song){
   MSDB.saveHistory(song);
 }
 
-/* ---------- AUTOPLAY ---------- */
-MSDB.autoplay(player,songs,indexRef,"guest");
+// ---------- AUTOPLAY ----------
+MSDB.autoplay(player, songs, indexRef, "guest");
 
-/* ---------- PLAYER CONTROLS ---------- */
+// ---------- PLAYER CONTROLS ----------
 document.getElementById("play").onclick = ()=>player.paused?player.play():player.pause();
 document.getElementById("next").onclick = ()=>playSong((indexRef.value+1)%songs.length);
 document.getElementById("prev").onclick = ()=>playSong((indexRef.value-1+songs.length)%songs.length);
 
-/* ---------- SEARCH ---------- */
+// ---------- SEARCH ----------
 searchEl.addEventListener("input", e=>{
   const query = e.target.value.toLowerCase();
   renderSongs(songs.filter(s=>
@@ -153,14 +150,13 @@ searchEl.addEventListener("input", e=>{
   ));
 });
 
-/* ---------- OPTIONAL: LOAD LYRICS FOR USERS ---------- */
+// ---------- OPTIONAL: LOAD LYRICS ----------
 async function showLyrics(song, userType="guest"){
   if(userType==="guest") return;
-  if(!song.lyrics) return; // No lyrics available
-  const text = await MSDB.loadLyrics(song,userType);
-  console.log("Lyrics:\n",text);
+  if(!song.lyrics) return;
+  const text = await MSDB.loadLyrics(song, userType);
+  console.log("Lyrics:\n", text);
 }
-
 </script>
 </body>
 </html>
