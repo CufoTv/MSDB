@@ -378,7 +378,8 @@
     }
   ]
 }
-  "genres": [
+  
+"genres": [
   "rap",
   "hip-hop",
   "albanian",
@@ -386,5 +387,5 @@
   "albanian",
   "french",
   "spanish"
-  ]
+]
 }
