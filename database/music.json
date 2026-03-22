@@ -275,6 +275,7 @@
       "features": [],
       "file": "songs/singles/no-me-duele.mp3",
       "cover": "cover/singles/no-me-duele.jpg",
+      "lyrics": "/lyrics/no-me-duele.lrc",
       "release_date": "2024-10-07",
       "genre": ["rap","hip-hop", "spanish"],
       "analytics": {"plays":0,"recentPlays":0,"skips":0},
