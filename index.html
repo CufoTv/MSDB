@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSDB Web Player</title>
+<style>
+  /* ---------- RESET ---------- */
+  * { margin:0; padding:0; box-sizing:border-box; font-family:sans-serif; }
+  body { background:#121212; color:#fff; }
+
+  /* ---------- HEADER ---------- */
+  header { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:#1f1f1f; }
+  header h1 { font-size:1.5rem; color:#1db954; }
+  header input { padding:.5rem 1rem; border-radius:20px; border:none; outline:none; width:200px; }
+
+  /* ---------- MAIN ---------- */
+  main { display:flex; padding:2rem; gap:2rem; }
+  .playlist, .player { flex:1; }
+
+  /* ---------- PLAYER ---------- */
+  .player { background:#1f1f1f; padding:1rem; border-radius:12px; display:flex; flex-direction:column; }
+  .player img { width:100%; border-radius:12px; }
+  .player h2, .player h3 { margin-top:.5rem; }
+  .controls { display:flex; justify-content:center; align-items:center; margin-top:1rem; gap:1rem; }
+  .controls button { background:#1db954; border:none; padding:.5rem 1rem; border-radius:50%; cursor:pointer; color:#fff; font-size:1.2rem; }
+
+  /* ---------- SONG LIST ---------- */
+  .playlist h2 { margin-bottom:1rem; }
+  .song-list { max-height:600px; overflow-y:auto; display:flex; flex-direction:column; gap:.5rem; }
+  .song-item { background:#1a1a1a; padding:.5rem 1rem; border-radius:8px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; transition:0.2s; }
+  .song-item:hover { background:#333; }
+  .song-item span { font-size:.9rem; color:#bbb; }
+
+  /* ---------- AD BANNER ---------- */
+  .ad-banner { margin:1rem 0; padding:1rem; background:#2a2a2a; border-radius:12px; text-align:center; color:#1db954; font-weight:bold; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>MSDB Player</h1>
+  <input id="search" type="text" placeholder="Search songs, artists...">
+</header>
+
+<main>
+  <!-- Playlist -->
+  <div class="playlist">
+    <h2>Playlist</h2>
+    <div id="ad" class="ad-banner" style="display:none;">Ad Playing...</div>
+    <div class="song-list" id="song-list"></div>
+  </div>
+
+  <!-- Player -->
+  <div class="player">
+    <img id="cover" src="" alt="Cover">
+    <h2 id="title">Select a song</h2>
+    <h3 id="artist">...</h3>
+    <div class="controls">
+      <button id="prev">&#9664;</button>
+      <button id="play">&#9654;</button>
+      <button id="next">&#9654;&#9654;</button>
+    </div>
+  </div>
+</main>
+
+<script type="module">
+  // ---------- CONFIG ----------
+  const MUSIC_URL = "https://raw.githubusercontent.com/CufoTv/MSDB/main/database/music.json";
+  const ADS_URL = "https://raw.githubusercontent.com/CufoTv/MSDB/main/ads/ads.json";
+  const CONNECT_URL = "https://raw.githubusercontent.com/CufoTv/MSDB/main/connect.js";
+
+  // ---------- LOAD CONNECT.JS ----------
+  const script = document.createElement("script");
+  script.type = "module";
+  script.src = CONNECT_URL;
+  document.body.appendChild(script);
+
+  script.onload = async () => {
+    const { loadMusic, loadAds, getAllSongs, autoplay, maybePlayAd, ultraSmartShuffle, loadLyrics, saveHistory, registerPlay } = window;
+
+    const player = new Audio();
+    let indexRef = { value:0 };
+
+    const musicDB = await loadMusic(MUSIC_URL);
+    const songs = ultraSmartShuffle(getAllSongs(musicDB));
+    const ads = await loadAds(ADS_URL);
+
+    const songListEl = document.getElementById("song-list");
+    const coverEl = document.getElementById("cover");
+    const titleEl = document.getElementById("title");
+    const artistEl = document.getElementById("artist");
+    const adEl = document.getElementById("ad");
+
+    // ---------- RENDER SONGS ----------
+    function renderSongs(list) {
+      songListEl.innerHTML = "";
+      list.forEach((song, idx) => {
+        const div = document.createElement("div");
+        div.className = "song-item";
+        div.innerHTML = `<span>${song.title}</span><span>${song.artists.join(", ")}</span>`;
+        div.onclick = () => playSong(idx);
+        songListEl.appendChild(div);
+      });
+    }
+
+    renderSongs(songs);
+
+    // ---------- PLAY SONG ----------
+    async function playSong(idx) {
+      indexRef.value = idx;
+      const song = songs[idx];
+
+      // AD SYSTEM
+      if(Math.random()<0.3 && ads.length>0) {
+        adEl.style.display = "block";
+        player.pause();
+        const ad = new Audio(ads[Math.floor(Math.random()*ads.length)].file);
+        await ad.play();
+        ad.onended = ()=> {
+          adEl.style.display = "none";
+          startAudio(song);
+        }
+      } else startAudio(song);
+    }
+
+    function startAudio(song) {
+      coverEl.src = song.cover || "";
+      titleEl.textContent = song.title;
+      artistEl.textContent = song.artists.join(", ");
+      player.src = song.file;
+      player.play();
+      registerPlay(song);
+      saveHistory(song);
+    }
+
+    // ---------- AUTOPLAY ----------
+    autoplay(player, songs, indexRef, "guest");
+
+    // ---------- PLAYER CONTROLS ----------
+    document.getElementById("play").onclick = ()=>player.paused?player.play():player.pause();
+    document.getElementById("next").onclick = ()=>playSong((indexRef.value+1)%songs.length);
+    document.getElementById("prev").onclick = ()=>playSong((indexRef.value-1+songs.length)%songs.length);
+
+    // ---------- SEARCH ----------
+    document.getElementById("search").addEventListener("input", e=>{
+      const query = e.target.value.toLowerCase();
+      renderSongs(songs.filter(s=>s.title.toLowerCase().includes(query)||s.artists.join(" ").toLowerCase().includes(query)));
+    });
+  }
+</script>
+
+</body>
+</html>
