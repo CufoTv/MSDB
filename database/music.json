@@ -1,173 +1,385 @@
 {
+  "artists": [
+    {
+      "id": "art_artur",
+      "name": "Artur",
+      "profile": "artist/artur.jpg",
+      "info": "artist-info/artur.json",
+      "genres": ["rap", "hip-hop", "albanian"]
+    },
+    {
+      "id": "art_finem",
+      "name": "Finem",
+      "profile": "artist/finem.jpg",
+      "info": "artist-info/finem.json",
+      "genres": ["rap", "hip-hop", "albanian"]
+    },
+    {
+      "id": "art_fero",
+      "name": "Fero",
+      "profile": "artist/fero.jpg",
+      "info": "artist-info/fero.json",
+      "genres": ["rap", "hip-hop", "albanian"]
+    },
+    {
+      "id": "art_mefa",
+      "name": "Mefa",
+      "profile": "artist/mefa.jpg",
+      "info": "artist-info/mefa.json",
+      "genres": ["rap", "hip-hop", "spanish"]
+    },
+    {
+      "id": "art_morad",
+      "name": "Morad",
+      "profile": "artist/morad.jpg",
+      "info": "artist-info/morad.json",
+      "genres": ["rap", "hip-hop", "spanish"]
+    },
+    {
+      "id": "art_bono",
+      "name": "Bono",
+      "profile": "artist/bono.jpg",
+      "info": "artist-info/bono.json",
+      "genres": ["rap", "hip-hop", "albanian"]
+    }
+  ],
+
   "albums": [
     {
+      "id": "alb_fmf",
       "title": "FMF",
-      "artist": "Artur",
+      "artists": ["art_artur"],
       "release_date": "2022-09-27",
-      "enabled": true,
       "cover": "cover/albums/fmf.jpg",
-      "songs": [
-        "songs/albums/enter.mp3",
-        "songs/albums/f.m.f.mp3",
-        "songs/albums/anormal.mp3",
-        "songs/albums/motorola.mp3",
-        "songs/albums/cocaina.mp3",
-        "songs/albums/up-and-down.mp3",
-        "songs/albums/dilema.mp3",
-        "songs/albums/no-love.mp3",
-        "songs/albums/1-shok.mp3",
-        "songs/albums/mein-bruder.mp3",
-        "songs/albums/exit.mp3"
-      ],
-      "artist_profile": "artist/artur.jpg",
-      "artist_info": "artist-info/artur.json"
+      "enabled": true,
+      "genre": ["rap", "hip-hop", "albanian"],
+      "tags": ["rap", "hip-hop", "albanian"],
+      "tracks": [
+        "trk_fmf_01","trk_fmf_02","trk_fmf_03","trk_fmf_04","trk_fmf_05",
+        "trk_fmf_06","trk_fmf_07","trk_fmf_08","trk_fmf_09","trk_fmf_10","trk_fmf_11"
+      ]
     }
   ],
+
   "eps": [
     {
+      "id": "ep_001",
       "title": "EP 1",
-      "artist": "Artist 2",
+      "artists": ["art_artist2"],
       "release_date": "2025-08-15",
-      "enabled": false,
       "cover": "cover/eps/ep1.jpg",
-      "songs": [
-        "songs/eps/ep1-song1.mp3",
-        "songs/eps/ep1-song2.mp3"
-      ],
-      "artist_profile": "artist/artist2.jpg",
-      "artist_info": "artist-info/artist2.json"
+      "enabled": false,
+      "genre": ["rap"],
+      "tags": ["rap", "hip-hop", "albanian"],
+      "tracks": [
+        "trk_ep1_01","trk_ep1_02"
+      ]
     }
   ],
+
+  "tracks": [
+    {
+      "id": "trk_fmf_01",
+      "title": "Enter",
+      "artists": ["art_artur"],
+      "album": "alb_fmf",
+      "track_number": 1,
+      "file": "songs/albums/enter.mp3",
+      "release_date": "2022-09-27",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "tags": ["rap", "hip-hop", "albanian"],
+      "lyrics": "lyrics/enter.lrc",
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
+    },
+    {
+      "id": "trk_fmf_02",
+      "title": "F.M.F",
+      "artists": ["art_artur"],
+      "album": "alb_fmf",
+      "track_number": 2,
+      "file": "songs/albums/f.m.f.mp3",
+      "release_date": "2022-09-27",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "tags": ["rap", "hip-hop", "albanian"],
+      "lyrics": "lyrics/fmf.lrc",
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
+    },
+    {
+      "id": "trk_fmf_03",
+      "title": "Anormal",
+      "artists": ["art_artur"],
+      "album": "alb_fmf",
+      "track_number": 3,
+      "file": "songs/albums/anormal.mp3",
+      "release_date": "2022-09-27",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "tags": ["rap", "hip-hop", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
+    },
+    {
+      "id": "trk_fmf_04",
+      "title": "Motorola",
+      "artists": ["art_artur"],
+      "album": "alb_fmf",
+      "track_number": 4,
+      "file": "songs/albums/motorola.mp3",
+      "release_date": "2022-09-27",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
+    },
+    {
+      "id": "trk_fmf_05",
+      "title": "Cocaina",
+      "artists": ["art_artur"],
+      "album": "alb_fmf",
+      "track_number": 5,
+      "file": "songs/albums/cocaina.mp3",
+      "release_date": "2022-09-27",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
+    },
+    {
+      "id": "trk_fmf_06",
+      "title": "Up And Down",
+      "artists": ["art_artur"],
+      "album": "alb_fmf",
+      "track_number": 6,
+      "file": "songs/albums/up-and-down.mp3",
+      "release_date": "2022-09-27",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
+    },
+    {
+      "id": "trk_fmf_07",
+      "title": "Dilema",
+      "artists": ["art_artur"],
+      "album": "alb_fmf",
+      "track_number": 7,
+      "file": "songs/albums/dilema.mp3",
+      "release_date": "2022-09-27",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
+    },
+    {
+      "id": "trk_fmf_08",
+      "title": "No Love",
+      "artists": ["art_artur"],
+      "album": "alb_fmf",
+      "track_number": 8,
+      "file": "songs/albums/no-love.mp3",
+      "release_date": "2022-09-27",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
+    },
+    {
+      "id": "trk_fmf_09",
+      "title": "1 Shok",
+      "artists": ["art_artur"],
+      "album": "alb_fmf",
+      "track_number": 9,
+      "file": "songs/albums/1-shok.mp3",
+      "release_date": "2022-09-27",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
+    },
+    {
+      "id": "trk_fmf_10",
+      "title": "Mein Bruder",
+      "artists": ["art_artur"],
+      "album": "alb_fmf",
+      "track_number": 10,
+      "file": "songs/albums/mein-bruder.mp3",
+      "release_date": "2022-09-27",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
+    },
+    {
+      "id": "trk_fmf_11",
+      "title": "Exit",
+      "artists": ["art_artur"],
+      "album": "alb_fmf",
+      "track_number": 11,
+      "file": "songs/albums/exit.mp3",
+      "release_date": "2022-09-27",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
+    }
+  ],
+
   "singles": [
     {
+      "id": "trk_akoma",
       "title": "Akoma",
-      "artist": "Finem",
-      "release_date": "2025-10-06",
-      "enabled": true,
+      "artists": ["art_finem"],
+      "features": [],
+      "file": "songs/singles/akoma.mp3",
       "cover": "cover/singles/akoma.jpg",
-      "song": "songs/singles/akoma.mp3",
-      "artist_profile": "artist/finem.jpg",
-      "artist_info": "artist-info/finem.json"
+      "release_date": "2025-10-06",
+      "genre": ["love", "albanian"],
+      "tags": ["hip-hop","love", "albanian"],
+      "lyrics": "lyrics/akoma.lrc",
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
     },
     {
+      "id": "trk_rapstar",
       "title": "Rap Star",
-      "artist": "Fero",
-      "release_date": "2022-02-01",
-      "enabled": true,
+      "artists": ["art_fero"],
+      "features": [],
+      "file": "songs/singles/Rap-Star.mp3",
       "cover": "cover/singles/rap-star.jpg",
-      "song": "songs/singles/Rap-Star.mp3",
-      "artist_profile": "artist/fero.jpg",
-      "artist_info": "artist-info/fero.json"
+      "release_date": "2022-02-01",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
     },
     {
+      "id": "trk_escobar",
       "title": "ESCOBAR",
-      "artist": "Finem",
-      "release_date": "2025-07-05",
-      "enabled": true,
+      "artists": ["art_finem"],
+      "features": [],
+      "file": "songs/singles/ESCOBAR.mp3",
       "cover": "cover/singles/ESCOBAR.jpg",
-      "song": "songs/singles/ESCOBAR.mp3",
-      "artist_profile": "artist/finem.jpg",
-      "artist_info": "artist-info/finem.json"
+      "release_date": "2025-07-05",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
     },
     {
+      "id": "trk_cligclag",
       "title": "CLIG CLAG",
-      "artist": "Mefa",
-      "release_date": "2020-08-09",
-      "enabled": true,
+      "artists": ["art_mefa"],
+      "features": [],
+      "file": "songs/singles/cligclag.mp3",
       "cover": "cover/singles/cligclag.jpg",
-      "song": "songs/singles/cligclag.mp3",
-      "artist_profile": "artist/mefa.jpg",
-      "artist_info": "artist-info/mefa.json"
+      "release_date": "2020-08-09",
+      "genre": ["rap", "hip-hop", "french"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
     },
     {
+      "id": "trk_nome-duele",
       "title": "No Me Duele",
-      "artist": "Morad",
-      "release_date": "2024-10-07",
-      "enabled": true,
+      "artists": ["art_morad"],
+      "features": [],
+      "file": "songs/singles/no-me-duele.mp3",
       "cover": "cover/singles/no-me-duele.jpg",
-      "song": "songs/singles/no-me-duele.mp3",
-      "artist_profile": "artist/morad.jpg",
-      "artist_info": "artist-info/morad.json"
+      "release_date": "2024-10-07",
+      "genre": ["rap","hip-hop", "spanish"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
     },
     {
+      "id": "trk_normal",
       "title": "Normal",
-      "artist": "Morad",
-      "release_date": "2020-07-10",
-      "enabled": true,
+      "artists": ["art_morad"],
+      "features": [],
+      "file": "songs/singles/normal.mp3",
       "cover": "cover/singles/normal.jpg",
-      "song": "songs/singles/normal.mp3",
-      "artist_profile": "artist/morad.jpg",
-      "artist_info": "artist-info/morad.json"
+      "release_date": "2020-07-10",
+      "genre": ["rap","hip-hop", "spanish"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
     },
     {
+      "id": "trk_sigue",
       "title": "SIGUE",
-      "artist": "Morad",
-      "release_date": "2022-01-04",
-      "enabled": true,
+      "artists": ["art_morad"],
+      "features": [],
+      "file": "songs/singles/sigue.mp3",
       "cover": "cover/singles/sigue.jpg",
-      "song": "songs/singles/sigue.mp3",
-      "artist_profile": "artist/morad.jpg",
-      "artist_info": "artist-info/morad.json"
+      "release_date": "2022-01-04",
+      "genre": ["rap","hip-hop", "spanish"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
     },
     {
+      "id": "trk_77777",
       "title": "77777",
-      "artist": "Finem",
-      "release_date": "2025-06-09",
-      "enabled": true,
+      "artists": ["art_finem"],
+      "features": [],
+      "file": "songs/singles/77777.mp3",
       "cover": "cover/singles/77777.jpg",
-      "song": "songs/singles/77777.mp3",
-      "artist_profile": "artist/finem.jpg",
-      "artist_info": "artist-info/finem.json"
+      "release_date": "2025-06-09",
+      "genre": ["rap", "hip-hop", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
     },
     {
+      "id": "trk_lutem",
       "title": "Lutem",
-      "artist": "Finem",
-      "release_date": "2023-07-28",
-      "enabled": true,
+      "artists": ["art_finem"],
+      "features": [],
+      "file": "songs/singles/lutem.mp3",
       "cover": "cover/singles/lutem.jpg",
-      "song": "songs/singles/lutem.mp3",
-      "artist_profile": "artist/finem.jpg",
-      "artist_info": "artist-info/finem.json"
+      "release_date": "2023-07-28",
+      "genre": ["hip-hop", "love", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
     },
     {
+      "id": "trk_stil-anakonde",
       "title": "STIL ANAKONDE",
-      "artist": "Finem",
-      "release_date": "2025-10-01",
-      "enabled": true,
+      "artists": ["art_finem"],
+      "features": [],
+      "file": "songs/singles/stil-anakonde.mp3",
       "cover": "cover/singles/stil-anakonde.jpg",
-      "song": "songs/singles/stil-anakonde.mp3",
-      "artist_profile": "artist/finem.jpg",
-      "artist_info": "artist-info/finem.json"
+      "release_date": "2025-10-01",
+      "genre": ["hip-hop", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
     },
     {
+      "id": "trk_adrenalin",
       "title": "Adrenalin",
-      "artist": "Fero",
-      "release_date": "2020-03-05",
-      "enabled": true,
+      "artists": ["art_fero"],
+      "features": [],
+      "file": "songs/singles/adrenalin.mp3",
       "cover": "cover/singles/adrenalin.jpg",
-      "song": "songs/singles/adrenalin.mp3",
-      "artist_profile": "artist/fero.jpg",
-      "artist_info": "artist-info/fero.json"
+      "release_date": "2020-03-05",
+      "genre": ["rap", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
     },
     {
+      "id": "trk_bonoland",
       "title": "Bonoland",
-      "artist": "Bono",
-      "release_date": "2020-03-17",
-      "enabled": true,
+      "artists": ["art_bono"],
+      "features": [],
+      "file": "songs/singles/bonoland.mp3",
       "cover": "cover/singles/bonoland.jpg",
-      "song": "songs/singles/bonoland.mp3",
-      "artist_profile": "artist/bono.jpg",
-      "artist_info": "artist-info/bono.json"
+      "release_date": "2020-03-17",
+      "genre": ["hip-hop", "rap", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
     },
     {
+      "id": "trk_marrezisht",
       "title": "Marrëzisht",
-      "artist": "Bono",
-      "release_date": "2020-01-04",
-      "enabled": true,
+      "artists": ["art_bono"],
+      "features": [],
+      "file": "songs/singles/marrëzisht.mp3",
       "cover": "cover/singles/marrëzisht.jpg",
-      "song": "songs/singles/marrëzisht.mp3",
-      "artist_profile": "artist/bono.jpg",
-      "artist_info": "artist-info/bono.json"
+      "release_date": "2020-01-04",
+      "genre": ["hip-hop", "rap", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
     }
+  ]
+}
+      
+  "genres": [
+    "rap","hip-hop","albanian","drill","trap","urban"
   ]
 }
