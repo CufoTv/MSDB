@@ -311,6 +311,7 @@
       "features": [],
       "file": "songs/singles/77777.mp3",
       "cover": "cover/singles/77777.jpg",
+      "lyrics": "/lyrics/77777.lrc",
       "release_date": "2025-06-09",
       "genre": ["rap", "hip-hop", "albanian"],
       "analytics": {"plays":0,"recentPlays":0,"skips":0},
