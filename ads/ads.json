@@ -1,11 +1,5 @@
 [
   {
-    "type": "banner",
-    "image": "/ads/banner/kfc.jpg",
-    "link": "https://kfckosova.com/",
-    "enabled": true
-  },
-  {
     "type": "audio",
     "file": "/ads/audio/KFC.mp3",
     "enabled": true
