@@ -41,6 +41,13 @@
       "profile": "artist/bono.jpg",
       "info": "artist-info/bono.json",
       "genres": ["rap", "hip-hop", "albanian"]
+    },
+    {
+      "id": "art_nessi",
+      "name": "NESSI",
+      "profile": "artist/nessi.jpg",
+      "info": "artist-info/nessi.json",
+      "genres": ["rap", "hip-hop", "albanian"]
     }
   ],
 
@@ -375,6 +382,19 @@
       "cover": "cover/singles/marrëzisht.jpg",
       "release_date": "2020-01-04",
       "genre": ["hip-hop", "rap", "albanian"],
+      "analytics": {"plays":0,"recentPlays":0,"skips":0},
+      "enabled": true
+    },
+    {
+      "id": "trk_mal",
+      "title": "Mal",
+      "artists": ["art_nessi"],
+      "features": [],
+      "file": "songs/singles/mal-nessi.mp3",
+      "cover": "cover/singles/mal-nessi.jpg",
+      "lyrics": "/lyrics/mal-nessi.lrc",
+      "release_date": "2026-03-30",
+      "genre": ["rap","hip-hop", "albanian"],
       "analytics": {"plays":0,"recentPlays":0,"skips":0},
       "enabled": true
     }
